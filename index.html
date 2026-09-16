@@ -119,7 +119,7 @@
                  radial-gradient(circle at 25% 80%,rgba(34,197,94,.20),transparent 22%);
       filter:blur(18px);
     }
-    .visual-browser{
+    .visual-browser{display:none;
       position:absolute;left:32px;right:32px;top:34px;bottom:34px;
       background:#f9fafb;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.16)
     }
@@ -198,7 +198,7 @@
     .project-link i{transition:.2s}.project-link:hover i{transform:translateX(4px)}
     .feature-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
     .feature-panel{background:linear-gradient(160deg,#151922,#0d1016);border:1px solid rgba(255,255,255,.08);border-radius:30px;overflow:hidden;min-height:540px;position:relative}
-    .feature-inner{position:absolute;inset:22px;border-radius:22px;background:#fbfcfd;overflow:hidden}
+    .feature-inner{display:none;position:absolute;inset:22px;border-radius:22px;background:#fbfcfd;overflow:hidden}
     .feature-top{height:34px;border-bottom:1px solid #e7e9ed;display:flex;gap:6px;align-items:center;padding:0 12px}
     .feature-dots{width:7px;height:7px;border-radius:50%;background:#d2d5db}
     .feature-screen{display:grid;grid-template-columns:30% 70%;height:calc(100% - 34px)}
@@ -267,10 +267,29 @@
     .reveal.in{opacity:1;transform:none}
     .cursor-dot{position:fixed;z-index:2000;pointer-events:none;width:12px;height:12px;border-radius:50%;background:var(--accent);mix-blend-mode:multiply;transform:translate(-50%,-50%);opacity:.45;display:none}
 
+
+    .source-art{position:absolute;inset:0;background:#eef0f4;overflow:hidden}
+    .source-art img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:transform .65s cubic-bezier(.2,.7,.2,1),filter .35s ease}
+    .project-card:hover .source-art img,.reference-card:hover .source-art img{transform:scale(1.045);filter:saturate(1.04)}
+    .source-art .image-wash{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,14,.02),rgba(8,10,14,.20))}
+    .source-art .source-pill{position:absolute;left:16px;top:16px;background:rgba(255,255,255,.90);backdrop-filter:blur(12px);padding:7px 10px;border-radius:999px;font-size:.65rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .source-art .source-note{position:absolute;right:16px;bottom:16px;background:rgba(11,13,18,.76);color:#fff;padding:8px 10px;border-radius:11px;font-size:.62rem;font-weight:800;backdrop-filter:blur(10px)}
+    .photo-mosaic{display:grid;grid-template-columns:1.2fr .8fr;gap:12px;height:100%;padding:12px;background:#eceef3}
+    .photo-mosaic .tile{position:relative;overflow:hidden;border-radius:20px;background:#ddd}
+    .photo-mosaic .tile.tall{grid-row:span 2}
+    .photo-mosaic img{width:100%;height:100%;object-fit:cover;display:block}
+    .case-visual{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;min-height:540px}
+    .case-photo{border-radius:30px;overflow:hidden;background:#e9ebef;position:relative}
+    .case-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .case-copy-card{border:1px solid rgba(255,255,255,.09);border-radius:30px;background:rgba(255,255,255,.035);padding:32px;display:flex;flex-direction:column;justify-content:center}
+    .case-copy-card h3{font-size:2rem;letter-spacing:-.05em;margin-bottom:12px}
+    .case-copy-card p{color:#9ea5b0;line-height:1.7}
+    @media (max-width: 992px){.case-visual{grid-template-columns:1fr}.case-photo{min-height:360px}}
+
     /* Portfolio artwork system */
     .creative-canvas{position:absolute;inset:0;overflow:hidden}
     .creative-noise{position:absolute;inset:0;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E")}
-    .mock-window{position:absolute;left:8%;right:8%;top:12%;bottom:12%;background:#fff;border-radius:20px;box-shadow:0 26px 60px rgba(17,19,24,.16);overflow:hidden}
+    .mock-window{display:none;position:absolute;left:8%;right:8%;top:12%;bottom:12%;background:#fff;border-radius:20px;box-shadow:0 26px 60px rgba(17,19,24,.16);overflow:hidden}
     .mock-top{height:34px;border-bottom:1px solid #e8eaee;display:flex;align-items:center;gap:6px;padding:0 12px}
     .mock-top span{width:7px;height:7px;border-radius:50%;background:#d7dbe1}
     .mock-body{display:grid;grid-template-columns:24% 76%;height:calc(100% - 34px)}
@@ -324,6 +343,25 @@
     .motion-frame:nth-child(3){height:64%;background:linear-gradient(145deg,#ff7a59,#222733)}
     .motion-frame:after{content:"";position:absolute;width:70px;height:70px;border:2px solid rgba(255,255,255,.72);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
     .motion-label{position:absolute;left:16px;bottom:12px;color:#fff;font:700 .68rem "Inter";z-index:2}
+
+    .reference-card{position:relative;border-radius:28px;overflow:hidden;min-height:310px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);transition:.35s ease}
+    .reference-card:hover{transform:translateY(-6px);box-shadow:0 28px 70px rgba(17,19,24,.13)}
+    .reference-image{width:100%;height:235px;object-fit:cover;display:block}
+    .reference-image.cover{object-position:center}
+    .reference-art{height:235px;position:relative;overflow:hidden}
+    .ref-bh{background:linear-gradient(135deg,#edf0f6,#d9deea)}
+    .ref-bh:before{content:"";position:absolute;left:9%;right:9%;top:12%;bottom:12%;border-radius:18px;background:#fff;box-shadow:0 24px 50px rgba(17,19,24,.16)}
+    .ref-bh:after{content:"";position:absolute;left:18%;right:18%;top:26%;height:45%;background:linear-gradient(180deg,#f6f7fa,#eceff4);border-radius:14px;box-shadow:inset 0 0 0 1px #e2e5ea}
+    .ref-dr{background:linear-gradient(145deg,#eff2f8,#d8deed)}
+    .ref-dr:before{content:"";position:absolute;left:8%;right:8%;top:14%;bottom:14%;border-radius:22px;background:#fff;box-shadow:0 24px 50px rgba(42,55,86,.18)}
+    .ref-dr:after{content:"";position:absolute;width:64%;height:36%;left:18%;top:31%;border-radius:14px;background:linear-gradient(135deg,#e6ddff,#fbfbff);box-shadow:0 10px 30px rgba(97,87,255,.15)}
+    .ref-fp{background:linear-gradient(145deg,#f5f0ff,#e6ddf8)}
+    .ref-fp:before{content:"";position:absolute;width:68%;height:70%;left:16%;top:15%;border-radius:26px;background:#fff;box-shadow:0 28px 54px rgba(91,67,130,.18)}
+    .ref-fp:after{content:"";position:absolute;right:11%;top:12%;width:82px;height:82px;border-radius:50%;background:linear-gradient(135deg,#ff7a59,#ffb38f);box-shadow:0 16px 30px rgba(255,122,89,.2)}
+    .ref-source{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);padding:7px 10px;border-radius:999px;font-size:.68rem;font-weight:900;z-index:4}
+    .reference-body{padding:18px 20px 20px}.reference-title{font:800 1.05rem "Plus Jakarta Sans";margin:0 0 5px}.reference-copy{color:#6c737e;font-size:.82rem;line-height:1.55;margin:0 0 12px}.reference-link{font-size:.76rem;font-weight:800;color:#111318}
+    .asset-note{font-size:.72rem;color:#8a919b;line-height:1.5;margin-top:9px}
+
     .visual-caption{position:absolute;left:18px;bottom:18px;padding:9px 12px;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-radius:999px;font-size:.68rem;font-weight:800;z-index:4}
     .project-card .project-media:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 58%,rgba(0,0,0,.07))}
     .creative-canvas > *{z-index:1}
@@ -346,7 +384,7 @@
       .hero{padding:110px 0 60px}
       .hero-visual{min-height:420px}
       .visual-stack{inset:20px 0 10px 8px;border-radius:26px}
-      .visual-browser{left:18px;right:18px;top:18px;bottom:18px}
+      .visual-browser{display:none;left:18px;right:18px;top:18px;bottom:18px}
       .browser-content{grid-template-columns:32% 68%}
       .hero-meta{gap:14px}
       .section{padding:86px 0}
@@ -490,6 +528,7 @@
           <a class="nav-link" href="#about">About</a>
           <a class="nav-link" href="#experience">Experience</a>
           <a class="nav-link" href="#skills">Skills</a>
+          <a class="nav-link" href="#references">References</a>
           <a class="nav-link" href="#visual-wall">Visuals</a>
           <a class="nav-link" href="#contact">Contact</a>
           <a class="btn btn-premium btn-sm ms-2" href="#contact">Let’s Work Together</a>
@@ -616,10 +655,7 @@
 
         <div class="project-grid">
           <article class="project-card large reveal" data-category="product">
-            <div class="project-media">
-              <div class="art art-saas"><div class="scanline"></div><div class="ui-floating"></div></div>
-              <div class="project-label">Product Design · SaaS</div>
-              <div class="project-overlay"><span class="text-white fw-bold">Voixt — WhatsApp automation & lead engagement</span></div>
+            <div class="project-media"><div class="source-art"><img loading="lazy" src="https://cdn.dribbble.com/userupload/47217607/file/still-01a4113fba683cc7882e42248461a7be.png?resize=1200&vertical=center" alt="Dribbble product interface reference visual"><div class="image-wash"></div><span class="source-pill">DRIBBBLE REFERENCE</span><span class="source-note">Visual direction only</span></div><div class="project-label">Product Design · SaaS</div><div class="project-overlay"><span class="text-white fw-bold">Voixt — WhatsApp automation & lead engagement</span></div>
             </div>
             <div class="project-body">
               <div class="project-meta">Product / UI/UX / SaaS</div>
@@ -630,7 +666,7 @@
           </article>
 
           <article class="project-card small reveal" data-category="product">
-            <div class="project-media"><div class="art art-finance"><div class="finance-chip">Finance Key · Mobile</div></div><div class="project-label">Finance · Mobile</div></div>
+            <div class="project-media"><div class="source-art"><img loading="lazy" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/0206b5173710229.6494899278616.png" alt="Behance dashboard design reference visual"><div class="image-wash"></div><span class="source-pill">BEHANCE REFERENCE</span></div><div class="project-label">Finance · Mobile</div></div>
             <div class="project-body">
               <div class="project-meta">UI/UX / Finance Product</div>
               <h3 class="project-name">DR.EMI</h3>
@@ -640,7 +676,7 @@
           </article>
 
           <article class="project-card small reveal" data-category="product">
-            <div class="project-media"><div class="art art-brand"><div class="brand-sheet"><div class="circle"></div><div class="line"></div><div class="line sm"></div></div></div><div class="project-label">Enterprise SaaS · Aviation</div></div>
+            <div class="project-media"><div class="source-art"><img loading="lazy" src="https://cdn.dribbble.com/userupload/47217607/file/still-01a4113fba683cc7882e42248461a7be.png?resize=1200&vertical=center" alt="Dribbble interface visual reference"><div class="image-wash"></div><span class="source-pill">INTERFACE REFERENCE</span></div><div class="project-label">Enterprise SaaS · Aviation</div></div>
             <div class="project-body">
               <div class="project-meta">UI/UX / Enterprise</div>
               <h3 class="project-name">DBOMS — Aviation</h3>
@@ -650,9 +686,7 @@
           </article>
 
           <article class="project-card large reveal" data-category="visual">
-            <div class="project-media">
-              <div class="art art-content"><div class="content-card"><div class="dot"></div><div class="line"></div><div class="line sm"></div></div></div>
-              <div class="project-label">Graphic · Marketing · Content</div>
+            <div class="project-media"><div class="source-art"><img loading="lazy" src="https://www.adobe.com/br/express/create/post/media_1719940d46db965165ba337077655ff12e6607726.png?format=png&optimize=medium&width=1200" alt="Adobe Express social media design reference"><div class="image-wash"></div><span class="source-pill">ADOBE EXPRESS REFERENCE</span></div><div class="project-label">Graphic · Marketing · Content</div>
               <div class="project-overlay"><span class="text-white fw-bold">Campaigns, social content & marketing visuals</span></div>
             </div>
             <div class="project-body">
@@ -664,7 +698,7 @@
           </article>
 
           <article class="project-card small reveal" data-category="brand">
-            <div class="project-media"><div class="art art-brand"><div class="brand-sheet"><div class="circle"></div><div class="line"></div><div class="line sm"></div></div></div><div class="project-label">Brand Identity</div></div>
+            <div class="project-media"><div class="source-art"><img loading="lazy" src="https://img.magnific.com/premium-psd/stationery-branding-identity-mockup-scene-creator_165789-144.jpg" alt="Freepik branding stationery mockup reference"><div class="image-wash"></div><span class="source-pill">FREEPIK REFERENCE</span></div><div class="project-label">Brand Identity</div></div>
             <div class="project-body">
               <div class="project-meta">Branding / Visual Identity</div>
               <h3 class="project-name">Identity & Brand Applications</h3>
@@ -674,12 +708,7 @@
           </article>
 
           <article class="project-card small reveal" data-category="video">
-            <div class="project-media">
-              <div class="art" style="background:linear-gradient(145deg,#11151d,#272e39)"><div class="creative-canvas">
-  <div class="motion-strip"><div class="motion-frame"><div class="motion-label">REEL 01</div></div><div class="motion-frame"><div class="motion-label">DEMO</div></div><div class="motion-frame"><div class="motion-label">PROMO</div></div></div>
-  <div class="visual-caption">Edit · rhythm · motion</div>
-</div></div>
-              <div class="project-label">Video · Motion</div>
+            <div class="project-media"><div class="source-art"><img loading="lazy" src="https://www.adobe.com/br/express/create/post/media_1719940d46db965165ba337077655ff12e6607726.png?format=png&optimize=medium&width=1200" alt="Adobe Express social creative reference"><div class="image-wash"></div><span class="source-pill">ADOBE REFERENCE</span><span class="source-note">Motion thumbnail direction</span></div><div class="project-label">Video · Motion</div>
             </div>
             <div class="project-body">
               <div class="project-meta">Editing / Reels / Product Content</div>
@@ -707,38 +736,16 @@
           <p class="section-note">Use the same structure for your strongest Drive projects so recruiters and clients can understand the decisions — not just the final screens.</p>
         </div>
 
-        <div class="feature-layout">
-          <div class="feature-panel reveal">
-            <div class="feature-inner">
-              <div class="feature-top"><span class="feature-dots"></span><span class="feature-dots"></span><span class="feature-dots"></span></div>
-              <div class="feature-screen">
-                <div class="feature-left">
-                  <div></div><div style="width:54%"></div><div></div><div style="width:66%"></div><div style="width:45%"></div>
-                </div>
-                <div class="feature-right">
-                  <div class="feature-header"></div>
-                  <div class="feature-grid"><div class="box"></div><div class="box"></div><div class="box"></div></div>
-                </div>
-              </div>
-            </div>
-            <div class="feature-sticker">Challenge → Approach → Process → Outcome</div>
+        <div class="case-visual">
+          <div class="case-photo reveal">
+            <img loading="lazy" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/0206b5173710229.6494899278616.png" alt="Behance product design reference used as visual direction">
           </div>
-          <div class="stats reveal">
-            <div class="stat-card">
-              <h3>01</h3>
-              <p><strong class="text-white">Challenge.</strong> Frame the problem or design requirement without over-writing the context.</p>
-            </div>
-            <div class="stat-card">
-              <h3>02</h3>
-              <p><strong class="text-white">Approach.</strong> Explain the key design direction and why it was chosen.</p>
-            </div>
-            <div class="stat-card">
-              <h3>03</h3>
-              <p><strong class="text-white">Process.</strong> Show research, flows, wireframes, components, visual exploration and prototypes when available.</p>
-            </div>
-            <div class="stat-card">
-              <h3>04</h3>
-              <p><strong class="text-white">Outcome.</strong> Add only verified results, project significance or learning supported by the work.</p>
+          <div class="case-copy-card reveal">
+            <div class="section-kicker">Reference-led presentation</div>
+            <h3>Show the real work large, then explain the decision.</h3>
+            <p>Use authentic screenshots, campaign artwork, brand applications and video frames from your own Drive work in this space. External imagery is used only as visual direction and is clearly labeled elsewhere.</p>
+            <div class="mt-3">
+              <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.14);color:#fff" target="_blank" rel="noopener" href="https://www.behance.net/gallery/173710229/Dashboard-Design-UX-UI">View Behance direction <i class="bi bi-arrow-up-right ms-1"></i></a>
             </div>
           </div>
         </div>
@@ -908,29 +915,115 @@
     </section>
 
 
+
+    <section class="section" id="references">
+      <div class="container-xl">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">10 / Visual References</div>
+            <h2 class="section-title">Professional visual references for the portfolio direction.</h2>
+          </div>
+          <p class="section-note">
+            These references are clearly separated from Avi’s own project work. They provide visual direction and clickable source pages from Behance, Dribbble, Adobe Express and Freepik.
+          </p>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-6 col-xl-3 reveal">
+            <a class="reference-card d-block" href="https://www.behance.net/gallery/158847649/Dashboard-Design-UI-UX" target="_blank" rel="noopener">
+              <div class="reference-art ref-bh"><span class="ref-source">BEHANCE</span></div>
+              <div class="reference-body">
+                <h3 class="reference-title">Dashboard UI direction</h3>
+                <p class="reference-copy">Clean SaaS dashboard composition used as interface-layout inspiration.</p>
+                <span class="reference-link">Open Behance reference ↗</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-xl-3 reveal">
+            <a class="reference-card d-block" href="https://dribbble.com/shots/23253061-SaaS-Dashboard-UI-Design" target="_blank" rel="noopener">
+              <div class="reference-art ref-dr"><span class="ref-source">DRIBBBLE</span></div>
+              <div class="reference-body">
+                <h3 class="reference-title">SaaS dashboard visual</h3>
+                <p class="reference-copy">A dashboard reference for polished cards, charts, spacing and product hierarchy.</p>
+                <span class="reference-link">Open Dribbble reference ↗</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-xl-3 reveal">
+            <a class="reference-card d-block" href="https://www.adobe.com/express/templates/post/social-media" target="_blank" rel="noopener">
+              <img class="reference-image cover" loading="lazy"
+                   src="https://design-assets.adobeprojectm.com/content/download/express/public/urn%3Aaaid%3Asc%3AVA6C2%3A4e1f733e-f35c-5e5c-ae97-e86c4ae22483/component?assetType=TEMPLATE&component_id=ac4e47a8-b42b-4a44-8a83-8ff0efd9036d&etag=b0d11608b5d5418e93fd7c15a067a7a3&revision=0ee796a6-a591-48a8-aa5e-20c356c25edc"
+                   alt="Adobe Express social media design reference">
+              <span class="ref-source">ADOBE EXPRESS</span>
+              <div class="reference-body">
+                <h3 class="reference-title">Social creative direction</h3>
+                <p class="reference-copy">A live Adobe Express social-post example reinforcing strong typography and hierarchy.</p>
+                <span class="reference-link">Open Adobe Express ↗</span>
+                <div class="asset-note">Reference image sourced from Adobe Express; not presented as Avi’s own work.</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-xl-3 reveal">
+            <a class="reference-card d-block" href="https://www.freepik.com/premium-vector/social-media-mockup-branding_415495588.htm" target="_blank" rel="noopener">
+              <div class="reference-art ref-fp"><span class="ref-source">FREEPIK</span></div>
+              <div class="reference-body">
+                <h3 class="reference-title">Branding mockup direction</h3>
+                <p class="reference-copy">Mockup and presentation direction for social-branding showcase compositions.</p>
+                <span class="reference-link">Open Freepik reference ↗</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-dark" id="visual-wall">
       <div class="container-xl">
         <div class="section-head reveal">
           <div>
-            <div class="section-kicker">10 / Visual Wall</div>
-            <h2 class="section-title">A quick visual scan of the craft.</h2>
+            <div class="section-kicker">11 / Visual Wall</div>
+            <h2 class="section-title">Real visual references. Stronger portfolio presentation.</h2>
           </div>
-          <p class="section-note">A more expressive gallery layer for posters, social creatives, product screens, branding and motion frames.</p>
+          <p class="section-note">Large image-led compositions bring the portfolio closer to a Behance / Dribbble editorial feel while keeping external references separate from your own work.</p>
         </div>
-        <div class="row g-3">
-          <div class="col-md-5 reveal"><div class="project-media" style="aspect-ratio:4/5;border-radius:28px">
-            <div class="art" style="background:linear-gradient(145deg,#0d1324,#6157ff 70%,#a9a5ff)"><div class="creative-canvas"><div class="poster-stack">
-              <div class="poster one"><div class="p-shape"></div><div class="p-copy">DESIGN<br>WITH<br>INTENT.</div></div>
-              <div class="poster two"><div class="p-shape"></div><div class="p-copy">CLEAR<br>IS A<br>FEATURE.</div></div>
-            </div></div></div>
-          </div></div>
-          <div class="col-md-7">
-            <div class="row g-3 h-100">
-              <div class="col-sm-6 reveal"><div class="project-media h-100" style="min-height:245px;border-radius:28px"><div class="art art-saas"><div class="creative-canvas"><div class="mock-window">
-                <div class="mock-top"><span></span><span></span><span></span></div><div class="mock-body"><div class="mock-nav"><div class="n"></div><div class="n m"></div><div class="n s"></div></div><div class="mock-main"><div class="mock-heading"></div><div class="mock-cards"><div class="mock-card"></div><div class="mock-card a"></div><div class="mock-card"></div></div></div></div>
-              </div></div></div></div></div>
-              <div class="col-sm-6 reveal"><div class="project-media h-100" style="min-height:245px;border-radius:28px"><div class="art art-content"><div class="creative-canvas"><div class="social-grid"><div class="social-post a"><div class="social-copy">GROW<br>SMARTER.</div></div><div class="social-post b"><div class="social-copy">SELL<br>BETTER.</div></div><div class="social-post c"><div class="social-copy">MOVE<br>FASTER.</div></div><div class="social-post d"><div class="social-copy">STAY<br>CLEAR.</div></div></div></div></div></div></div>
-              <div class="col-12 reveal"><div class="project-media" style="min-height:240px;border-radius:28px"><div class="art art-brand"><div class="creative-canvas"><div class="editorial-type"><div class="big" style="font-size:clamp(2.1rem,5vw,4.5rem)">PRODUCT<br><span class="outline">VISUALS</span><br>THAT LAND.</div><div class="small">Interface / brand / campaign / content</div><div class="editorial-shape"></div></div></div></div></div></div>
+
+        <div class="photo-mosaic reveal" style="height:620px">
+          <a class="tile tall" href="https://www.behance.net/gallery/173710229/Dashboard-Design-UX-UI" target="_blank" rel="noopener">
+            <img loading="lazy" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/0206b5173710229.6494899278616.png" alt="Behance dashboard design reference">
+            <div class="source-pill">BEHANCE</div>
+          </a>
+          <a class="tile" href="https://dribbble.com/tags/web-interface-design" target="_blank" rel="noopener">
+            <img loading="lazy" src="https://cdn.dribbble.com/userupload/47217607/file/still-01a4113fba683cc7882e42248461a7be.png?resize=1200&vertical=center" alt="Dribbble interface design reference">
+            <div class="source-pill">DRIBBBLE</div>
+          </a>
+          <a class="tile" href="https://www.adobe.com/express/templates/post/social-media" target="_blank" rel="noopener">
+            <img loading="lazy" src="https://www.adobe.com/br/express/create/post/media_1719940d46db965165ba337077655ff12e6607726.png?format=png&optimize=medium&width=1200" alt="Adobe Express social media design reference">
+            <div class="source-pill">ADOBE EXPRESS</div>
+          </a>
+        </div>
+
+        <div class="row g-3 mt-3">
+          <div class="col-md-5 reveal">
+            <a class="reference-card d-block h-100" href="https://www.freepik.com/premium-psd/stationery-branding-identity-mockup-scene-creator_10674731.htm" target="_blank" rel="noopener">
+              <img class="reference-image" style="height:280px" loading="lazy" src="https://img.magnific.com/premium-psd/stationery-branding-identity-mockup-scene-creator_165789-144.jpg" alt="Freepik stationery branding mockup reference">
+              <div class="reference-body">
+                <h3 class="reference-title">Branding presentation direction</h3>
+                <p class="reference-copy">Use this kind of physical mockup treatment for identity work and brand collateral showcases.</p>
+                <span class="reference-link">Open Freepik reference ↗</span>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-7 reveal">
+            <div class="reference-card h-100">
+              <div class="reference-body" style="padding:30px">
+                <div class="section-kicker">Portfolio rule</div>
+                <h3 class="section-title" style="font-size:clamp(2rem,4vw,3.3rem)">Your work should be the hero. References should only set the visual bar.</h3>
+                <p class="reference-copy mt-3">When your individual Drive image links are added, these large reference panels can be replaced one-to-one with your actual UI screens, social posts, branding boards, reels and campaign artwork.</p>
+                <a class="btn btn-premium mt-3" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1TUtXEv54ujsrSdSPoMTZoH8M0EHVYBe2?usp=drive_link">Open Your Drive Assets <i class="bi bi-arrow-up-right ms-1"></i></a>
+              </div>
             </div>
           </div>
         </div>
