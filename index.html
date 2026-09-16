@@ -3,89 +3,88 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Avi Gondaliya — Creative Designer & Editor</title>
-  <meta name="description" content="Avi Gondaliya — UI/UX Designer, Graphic Designer, Visual Designer and Video Editor based in Ahmedabad.">
-  <meta name="theme-color" content="#030303">
+  <title>Avi Gondaliya — UI/UX, Graphic Designer & Video Editor</title>
+  <meta name="description" content="Portfolio of Avi Gondaliya based in Ahmedabad, Gujarat, India.">
+  <meta name="theme-color" content="#050505">
 
+  <!-- Strictly Open Sans Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   
+  <!-- Bootstrap 5 & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
     :root {
-      --bg-dark: #030303;
+      --bg-dark: #050505;
       --text-main: #f4f4f5;
       --text-muted: #a1a1aa;
-      --neon-1: #8a2be2; /* Purple */
-      --neon-2: #ff007f; /* Pink */
-      --neon-3: #00e5ff; /* Cyan */
-      --neon-4: #ffea00; /* Yellow */
-      --glass-bg: rgba(20, 20, 25, 0.4);
+      --accent-1: #00e5ff; /* Cyan */
+      --accent-2: #8a2be2; /* Purple */
+      --accent-3: #ff007f; /* Pink */
+      --glass-bg: rgba(255, 255, 255, 0.03);
       --glass-border: rgba(255, 255, 255, 0.08);
-      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     }
 
-    * { box-sizing: border-box; }
+    * { 
+      box-sizing: border-box; 
+      font-family: 'Open Sans', sans-serif !important;
+    }
+    
     html { scroll-behavior: smooth; }
+    
     body {
       margin: 0;
       background-color: var(--bg-dark);
       color: var(--text-main);
-      font-family: 'Open Sans', sans-serif;
       overflow-x: hidden;
-      cursor: none; /* Custom cursor fallback */
+      cursor: none; /* Custom cursor */
     }
 
-    /* Force Open Sans everywhere */
-    h1, h2, h3, h4, h5, h6, p, a, span, div, button, .btn {
-      font-family: 'Open Sans', sans-serif !important;
-    }
-
-    a { text-decoration: none; color: inherit; }
-    ::selection { background: var(--neon-2); color: #fff; }
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    ::selection { background: var(--accent-1); color: #000; }
 
     .progress-container {
-      position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.05); z-index: 9999;
+      position: fixed; top: 0; left: 0; width: 100%; height: 3px; 
+      background: rgba(255,255,255,0.05); z-index: 9999;
     }
     .progress-bar-custom {
       height: 100%; width: 0%;
-      background: linear-gradient(90deg, var(--neon-3), var(--neon-1), var(--neon-2));
-      transition: width 0.1s ease-out;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
     }
 
     .cursor-dot {
-      position: fixed; top: 0; left: 0; width: 6px; height: 6px; background-color: #fff;
+      position: fixed; top: 0; left: 0; width: 8px; height: 8px; background-color: var(--text-main);
       border-radius: 50%; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%);
     }
-    .cursor-circle {
+    .cursor-ring {
       position: fixed; top: 0; left: 0; width: 40px; height: 40px;
       border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%;
       pointer-events: none; z-index: 9999; transform: translate(-50%, -50%);
       transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
     }
-    .cursor-circle.hovered {
-      width: 80px; height: 80px; background-color: rgba(255, 255, 255, 0.05);
+    .cursor-ring.hovered {
+      width: 70px; height: 70px; background-color: rgba(255, 255, 255, 0.1);
       border-color: transparent; backdrop-filter: blur(2px);
     }
     @media (max-width: 991px) {
       body { cursor: auto; }
-      .cursor-dot, .cursor-circle { display: none; }
+      .cursor-dot, .cursor-ring { display: none; }
     }
 
     .ambient-bg {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      overflow: hidden; z-index: -1; pointer-events: none;
+      position: fixed; inset: 0; overflow: hidden; z-index: -1; pointer-events: none;
     }
     .blob {
-      position: absolute; border-radius: 50%; filter: blur(150px); opacity: 0.4;
-      animation: float-blob 15s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+      position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.5;
+      animation: float-blob 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .blob-a { width: 50vw; height: 50vw; background: var(--neon-1); top: -20%; left: -10%; }
-    .blob-b { width: 45vw; height: 45vw; background: var(--neon-3); bottom: -10%; right: -10%; animation-delay: -5s; }
-    .blob-c { width: 40vw; height: 40vw; background: var(--neon-2); top: 30%; left: 30%; animation-delay: -10s; }
+    .blob-a { width: 45vw; height: 45vw; background: var(--accent-2); top: -10%; left: -10%; }
+    .blob-b { width: 40vw; height: 40vw; background: var(--accent-1); bottom: -10%; right: -10%; animation-delay: -5s; }
+    .blob-c { width: 35vw; height: 35vw; background: var(--accent-3); top: 40%; left: 30%; animation-delay: -10s; }
     
     @keyframes float-blob {
       0% { transform: translate(0, 0) scale(1); }
@@ -93,471 +92,463 @@
       100% { transform: translate(-40px, 40px) scale(0.9); }
     }
 
-    .glass {
+    .glass-panel {
       background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
       border: 1px solid var(--glass-border);
       box-shadow: var(--glass-shadow);
       border-radius: 24px;
     }
 
-    .nav-glass {
-      position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
-      width: 90%; max-width: 1200px; padding: 16px 32px; z-index: 1000;
-      border-radius: 50px; display: flex; justify-content: space-between; align-items: center;
+    .nav-header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      padding: 15px 0; transition: background 0.3s, backdrop-filter 0.3s;
     }
-    .nav-brand { font-weight: 800; font-size: 1.4rem; color: #fff; letter-spacing: -0.05em; }
-    .nav-links a { margin-left: 32px; font-weight: 600; font-size: 0.9rem; color: var(--text-muted); transition: color 0.3s; }
-    .nav-links a:hover { color: #fff; }
-
-    .hero {
-      min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-      align-items: center; text-align: center; position: relative; padding: 120px 20px 60px;
+    .nav-header.scrolled {
+      background: rgba(5, 5, 5, 0.6);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
     }
-    .status-badge {
-      display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px;
-      border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.15em; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
-      margin-bottom: 30px;
-    }
-    .status-dot { width: 8px; height: 8px; background: var(--neon-3); border-radius: 50%; box-shadow: 0 0 10px var(--neon-3); }
+    .navbar-brand { font-weight: 800; font-size: 1.5rem; letter-spacing: -0.05em; color: #fff !important; }
+    .nav-link { font-weight: 600; font-size: 0.95rem; color: var(--text-muted) !important; margin: 0 10px; }
+    .nav-link:hover { color: #fff !important; }
     
-    .hero-title {
-      font-size: clamp(3.5rem, 9vw, 8rem); font-weight: 800; line-height: 1;
-      letter-spacing: -0.06em; margin-bottom: 30px; text-transform: uppercase;
+    .btn-cta {
+      background: linear-gradient(45deg, var(--accent-1), var(--accent-2));
+      color: #fff; border: none; border-radius: 50px; padding: 10px 24px;
+      font-weight: 700; transition: transform 0.3s, box-shadow 0.3s;
     }
-    .text-glow {
-      background: linear-gradient(to right, var(--neon-3), var(--neon-1), var(--neon-2));
+    .btn-cta:hover {
+      transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3); color: #fff;
+    }
+
+    .hero-section {
+      min-height: 100vh; display: flex; align-items: center; position: relative;
+      padding-top: 100px;
+    }
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 6rem); font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.04em; margin-bottom: 24px;
+    }
+    .text-gradient {
+      background: linear-gradient(to right, var(--accent-1), var(--accent-3), var(--accent-2));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-size: 200% 200%; animation: shimmer 4s ease infinite;
     }
     @keyframes shimmer { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     
-    .hero-desc { font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--text-muted); max-width: 700px; margin-bottom: 50px; line-height: 1.6; font-weight: 400; }
-
-    .mag-wrap { display: inline-block; padding: 20px; }
-    .btn-mag {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 18px 40px; font-size: 1.1rem; font-weight: 700; color: #fff;
-      background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50px; backdrop-filter: blur(10px); position: relative; overflow: hidden;
-      transition: background 0.3s;
+    .hero-desc {
+      font-size: 1.25rem; color: var(--text-muted); font-weight: 400; line-height: 1.7;
+      max-width: 650px; margin-bottom: 40px;
     }
-    .btn-mag::after {
-      content: ''; position: absolute; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-      left: -100%; transition: 0.5s;
-    }
-    .btn-mag:hover::after { left: 100%; }
-    .btn-mag:hover { color: #fff; background: rgba(255,255,255,0.1); }
 
-    .marquee-wrapper {
-      width: 100%; overflow: hidden; padding: 50px 0; background: rgba(0,0,0,0.4);
-      border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);
-      position: relative; z-index: 10; display: flex; white-space: nowrap;
-    }
-    .marquee-content { display: flex; animation: slide-left 25s linear infinite; }
-    .mq-item {
-      font-size: 2.5rem; font-weight: 800; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.3);
-      margin: 0 40px; text-transform: uppercase; letter-spacing: 0.05em; transition: 0.3s;
-    }
-    .mq-item:hover { -webkit-text-stroke: 1px #fff; color: #fff; text-shadow: 0 0 20px var(--neon-1); }
-    @keyframes slide-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .section-pad { padding: 120px 0; }
+    .section-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 80px; letter-spacing: -0.03em; }
 
-    .section-spacing { padding: 150px 0; }
-    .sec-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 20px; letter-spacing: -0.04em; }
-    .sec-subtitle { font-size: 1.2rem; color: var(--neon-3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 60px; }
-    
-    .about-text { font-size: 1.25rem; line-height: 1.8; color: var(--text-muted); font-weight: 300; }
-    .about-text strong { color: #fff; font-weight: 700; }
-
-    .showcase-container { display: flex; flex-direction: column; gap: 150px; }
     .showcase-row {
-      display: flex; align-items: center; gap: 40px;
-      transform-style: preserve-3d; perspective: 1200px;
+      display: flex; align-items: center; gap: 60px; margin-bottom: 150px;
     }
     .showcase-row:nth-child(even) { flex-direction: row-reverse; }
-    
-    .showcase-img-box {
-      flex: 1.2; position: relative; border-radius: 30px; overflow: hidden;
-      aspect-ratio: 16/10; transform-style: preserve-3d;
-    }
-    .showcase-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
-    .showcase-row:hover .showcase-img { transform: scale(1.05); }
-    .showcase-img-overlay {
-      position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.8));
-      pointer-events: none;
+    @media (max-width: 991px) {
+      .showcase-row, .showcase-row:nth-child(even) { flex-direction: column; gap: 30px; margin-bottom: 100px; }
     }
 
-    .showcase-content-box {
-      flex: 0.8; padding: 50px; z-index: 2; margin-left: -100px;
-      transform: translateZ(50px); /* 3D pop out */
+    .showcase-visual {
+      flex: 1; border-radius: 24px; padding: 15px; 
+      /* The glass-panel class provides the background/border */
     }
-    .showcase-row:nth-child(even) .showcase-content-box { margin-left: 0; margin-right: -100px; }
-    
-    .sc-badge { display: inline-block; padding: 6px 14px; background: rgba(255,255,255,0.1); border-radius: 50px; font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.1em; }
-    .sc-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
-    .sc-desc { font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 40px; }
-    
-    /* Dynamic Tilt Class */
-    .tilt-el { transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1); will-change: transform; transform-style: preserve-3d; }
-    .tilt-el.reset { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .visual-inner {
+      border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; position: relative;
+    }
+    .visual-inner img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease;
+    }
+    .showcase-visual:hover .visual-inner img { transform: scale(1.05); }
 
-    .timeline { position: relative; max-width: 900px; margin: 0 auto; }
-    .timeline::before { content: ''; position: absolute; top: 0; left: 30px; height: 100%; width: 2px; background: rgba(255,255,255,0.1); }
-    .timeline-item { position: relative; padding-left: 80px; margin-bottom: 60px; }
-    .timeline-icon {
-      position: absolute; top: 0; left: 15px; width: 32px; height: 32px;
-      border-radius: 50%; background: var(--bg-dark); border: 2px solid var(--neon-3);
-      display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
-    }
-    .timeline-icon i { width: 12px; height: 12px; background: var(--neon-3); border-radius: 50%; }
-    .timeline-date { font-size: 0.9rem; font-weight: 700; color: var(--neon-3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
-    .timeline-role { font-size: 1.8rem; font-weight: 800; margin-bottom: 5px; }
-    .timeline-company { font-size: 1.1rem; color: #fff; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
-    .timeline-company i { color: var(--neon-2); }
-
-    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
-    .tool-card {
-      padding: 30px 20px; text-align: center; border-radius: 20px;
-      transition: transform 0.3s, background 0.3s;
-    }
-    .tool-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.08); }
-    .tool-card h4 { margin: 0; font-size: 1.2rem; font-weight: 700; }
-
-    .contact-footer { text-align: center; padding: 120px 0 60px; position: relative; }
-    .contact-title { font-size: clamp(3rem, 7vw, 6rem); font-weight: 800; margin-bottom: 50px; letter-spacing: -0.05em; }
-    .social-btn {
-      padding: 20px 40px; border-radius: 50px; font-size: 1.2rem; font-weight: 700;
-      background: var(--glass-bg); border: 1px solid var(--glass-border); color: #fff;
-      display: inline-flex; align-items: center; gap: 15px; transition: 0.3s; margin: 10px;
-    }
-    .social-btn:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); color: #fff; }
-    .social-btn.email:hover { border-color: var(--neon-3); box-shadow: 0 0 25px rgba(0, 229, 255, 0.2); }
-    .social-btn.linkedin:hover { border-color: var(--neon-1); box-shadow: 0 0 25px rgba(138, 43, 226, 0.2); }
+    .showcase-info { flex: 1; }
+    .sc-category { font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-1); margin-bottom: 15px; font-size: 0.85rem; }
+    .sc-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 25px; line-height: 1.2; }
+    .sc-desc { font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 30px; font-weight: 400; }
     
-    .copyright { margin-top: 80px; color: var(--text-muted); font-size: 0.9rem; font-weight: 400; }
+    .tools-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 35px; }
+    .tool-badge {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+      transition: 0.3s;
+    }
+    .tool-badge:hover { background: rgba(255,255,255,0.1); border-color: var(--accent-1); color: var(--accent-1); }
+
+    .btn-outline-glass {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 30px; border-radius: 50px; font-weight: 700; font-size: 1rem;
+      color: #fff; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.02);
+      transition: all 0.3s ease;
+    }
+    .btn-outline-glass:hover {
+      background: rgba(255,255,255,0.1); border-color: #fff; transform: translateY(-3px);
+    }
+
+    .timeline-container { position: relative; padding-left: 40px; margin-top: 50px; }
+    .timeline-container::before {
+      content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 2px;
+      background: linear-gradient(to bottom, var(--accent-1), var(--accent-3), transparent);
+    }
+    .timeline-item { position: relative; margin-bottom: 60px; padding: 40px; }
+    .timeline-dot {
+      position: absolute; left: -49px; top: 40px; width: 20px; height: 20px;
+      border-radius: 50%; background: var(--bg-dark); border: 3px solid var(--accent-1);
+      box-shadow: 0 0 15px var(--accent-1);
+    }
+    .tl-date { font-weight: 700; color: var(--accent-1); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 10px; }
+    .tl-role { font-size: 1.8rem; font-weight: 800; margin-bottom: 5px; }
+    .tl-company { font-size: 1.1rem; color: #fff; font-weight: 600; margin-bottom: 20px; }
+    .tl-desc { color: var(--text-muted); line-height: 1.7; margin-bottom: 0; }
+    .tl-award {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 20px;
+      padding: 8px 16px; background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 8px; color: #ffd700; font-weight: 700; font-size: 0.9rem;
+    }
+
+    .main-footer {
+      border-top: 1px solid var(--glass-border); padding: 80px 0 40px;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      position: relative; z-index: 10;
+    }
+    .footer-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; }
+    .footer-text { color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+    .footer-links { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { color: var(--text-muted); font-weight: 600; }
+    .footer-links a:hover { color: var(--accent-1); padding-left: 5px; }
+    
+    .social-circle {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1); font-size: 1.2rem; margin-right: 10px; transition: 0.3s;
+    }
+    .social-circle:hover { background: var(--accent-1); border-color: var(--accent-1); color: #000; transform: translateY(-3px); }
+    
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; margin-top: 50px; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
 
     /* Scroll Reveals */
-    .reveal { opacity: 0; transform: translateY(80px); transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .reveal { opacity: 0; transform: translateY(60px); transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
     .reveal.active { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 991px) {
-      .nav-links { display: none; }
-      .showcase-row, .showcase-row:nth-child(even) { flex-direction: column; gap: 0; }
-      .showcase-content-box { margin: -60px 20px 0 !important; transform: none; padding: 30px; }
-      .timeline::before { left: 20px; }
-      .timeline-item { padding-left: 50px; }
-      .timeline-icon { left: 5px; }
-    }
   </style>
 </head>
 <body>
 
+  <!-- Scroll Progress & Cursor -->
   <div class="progress-container"><div class="progress-bar-custom" id="scrollBar"></div></div>
   <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-circle" id="cursorCircle"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
+  <!-- Ambient Blobs -->
   <div class="ambient-bg">
     <div class="blob blob-a"></div>
     <div class="blob blob-b"></div>
     <div class="blob blob-c"></div>
   </div>
 
-  <nav class="nav-glass glass hover-trigger">
-    <a href="#" class="nav-brand">AVI.</a>
-    <div class="nav-links">
-      <a href="#about" class="hover-trigger">About</a>
-      <a href="#work" class="hover-trigger">Portfolio</a>
-      <a href="#experience" class="hover-trigger">Experience</a>
-      <a href="#contact" class="hover-trigger">Contact</a>
+  <nav class="navbar navbar-expand-lg nav-header hover-target" id="navbar">
+    <div class="container">
+      <a class="navbar-brand hover-target" href="#">AVI G.</a>
+      <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="filter: invert(1);">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center gap-3">
+          <li class="nav-item"><a class="nav-link hover-target" href="#work">Work</a></li>
+          <li class="nav-item"><a class="nav-link hover-target" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link hover-target" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-3">
+            <a href="mailto:gondaliyaavi007@gmail.com" class="btn btn-cta hover-target">Let's Talk <i class="bi bi-arrow-right ms-1"></i></a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <header class="hero container">
-    <div class="reveal">
-      <div class="status-badge hover-trigger">
-        <span class="status-dot"></span> Ahmedabad, India
+  <section class="hero-section container">
+    <div class="row w-100">
+      <div class="col-lg-9 reveal">
+        <div class="d-inline-flex align-items-center gap-2 mb-4 px-3 py-2 glass-panel" style="border-radius: 50px; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">
+          <span style="width:8px; height:8px; background:var(--accent-1); border-radius:50%; box-shadow: 0 0 10px var(--accent-1);"></span>
+          Ahmedabad, Gujarat, India
+        </div>
+        <h1 class="hero-title">
+          Architecting interfaces. <br>
+          Designing <span class="text-gradient">identities.</span> <br>
+          Editing <span class="text-gradient">narratives.</span>
+        </h1>
+        <p class="hero-desc">
+          I am a multidisciplinary designer and editor focused on bridging the gap between digital product logic, high-impact brand aesthetics, and cinematic video storytelling. Transforming complex ideas into compelling visual realities.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#work" class="btn-outline-glass hover-target">Explore Portfolio <i class="bi bi-chevron-down"></i></a>
+        </div>
       </div>
-      <h1 class="hero-title">
-        Visualizing <span class="text-glow">Ideas.</span><br>
-        Editing <span class="text-glow">Stories.</span>
-      </h1>
-      <p class="hero-desc mx-auto">
-        I am Avi Gondaliya — a multidisciplinary creative bridging the gap between digital product design, high-impact branding, and cinematic video storytelling.
-      </p>
-      <div class="mag-wrap hover-trigger">
-        <a href="#work" class="btn-mag">
-          View Curated Work <i class="bi bi-arrow-down-right ms-2"></i>
+    </div>
+  </section>
+
+  <section id="work" class="section-pad container">
+    <div class="text-center reveal">
+      <h2 class="section-title">Selected <span class="text-gradient">Disciplines</span></h2>
+    </div>
+
+    <!-- Category 1: Post and Graphic Design -->
+    <div class="showcase-row reveal">
+      <div class="showcase-visual glass-panel hover-target" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+        <div class="visual-inner">
+          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=1200" alt="Graphic Design Showcase">
+        </div>
+      </div>
+      <div class="showcase-info">
+        <div class="sc-category">01 — Graphic Design</div>
+        <h3 class="sc-title">Social Creatives & Marketing Campaigns</h3>
+        <p class="sc-desc">
+          In the digital age, attention is the most valuable currency. My approach to graphic design and social media architecture revolves around crafting visually arresting compositions that stop the scroll. From vibrant campaign banners to cohesive Instagram grid strategies, I design digital assets that not only look premium but are optimized for user engagement and conversion metrics.
+        </p>
+        <div class="tools-row">
+          <span class="tool-badge">Adobe Photoshop</span>
+          <span class="tool-badge">Adobe Illustrator</span>
+          <span class="tool-badge">Figma</span>
+          <span class="tool-badge">Canva</span>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1XCL9Erp6qO8WrPGiiBYqT8iEovN7QMSm?usp=drive_link" target="_blank" class="btn-outline-glass hover-target">
+          View Graphics Archive <i class="bi bi-box-arrow-up-right"></i>
         </a>
       </div>
     </div>
-  </header>
 
-  <div class="marquee-wrapper hover-trigger">
-    <div class="marquee-content">
-      <span class="mq-item">UI/UX Design</span><span class="mq-item">✦</span>
-      <span class="mq-item">Graphic Design</span><span class="mq-item">✦</span>
-      <span class="mq-item">Video Editing</span><span class="mq-item">✦</span>
-      <span class="mq-item">Brand Identity</span><span class="mq-item">✦</span>
-      <span class="mq-item">Instagram Reels</span><span class="mq-item">✦</span>
-      <!-- Duplicate for loop -->
-      <span class="mq-item">UI/UX Design</span><span class="mq-item">✦</span>
-      <span class="mq-item">Graphic Design</span><span class="mq-item">✦</span>
-      <span class="mq-item">Video Editing</span><span class="mq-item">✦</span>
-      <span class="mq-item">Brand Identity</span><span class="mq-item">✦</span>
-      <span class="mq-item">Instagram Reels</span><span class="mq-item">✦</span>
+    <!-- Category 2: Logo, Visiting Card & Brand Identity -->
+    <div class="showcase-row reveal">
+      <div class="showcase-visual glass-panel hover-target" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+        <div class="visual-inner">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1200" alt="Brand Identity Mockup">
+        </div>
+      </div>
+      <div class="showcase-info">
+        <div class="sc-category">02 — Branding</div>
+        <h3 class="sc-title">Corporate Identity & Visual Systems</h3>
+        <p class="sc-desc">
+          A brand is more than just a logo; it is the visual embodiment of a company's core values, market positioning, and corporate identity. In these branding projects, I dive deep into the DNA of the business to extract a cohesive visual language. This comprehensive suite includes conceptual logo designs, premium visiting card layouts, typography selection, and robust brand guidelines that ensure consistency across all touchpoints.
+        </p>
+        <div class="tools-row">
+          <span class="tool-badge">Adobe Illustrator</span>
+          <span class="tool-badge">Adobe Photoshop</span>
+          <span class="tool-badge">CorelDRAW</span>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1ozUB_8-AOTS0UshWoBdvJguQP-KpMnoT?usp=drive_link" target="_blank" class="btn-outline-glass hover-target">
+          View Branding Archive <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </div>
     </div>
-  </div>
 
-  <section id="about" class="section-spacing container">
-    <div class="row align-items-center">
-      <div class="col-lg-10 mx-auto text-center reveal">
-        <div class="sec-subtitle">Who I Am</div>
-        <h2 class="sec-title">Multidisciplinary Design & Execution.</h2>
-        <p class="about-text mt-4">
-          Based in Ahmedabad, I bring a unique hybrid skill set to the table. As a <strong>UI/UX and Graphic Designer</strong>, I architect digital experiences and build robust brand identities. As a <strong>Video Editor</strong>, I craft cinematic reels, product demos, and viral content that captures attention. 
-          <br><br>
-          Currently, I am leveraging this diverse expertise at <strong>Gothi Tech LLP</strong> to deliver end-to-end creative solutions—from the first wireframe to the final promotional edit.
+    <!-- Category 3: Professional Video Editing -->
+    <div class="showcase-row reveal">
+      <div class="showcase-visual glass-panel hover-target" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+        <div class="visual-inner">
+          <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=1200" alt="Video Editing Workspace">
+        </div>
+      </div>
+      <div class="showcase-info">
+        <div class="sc-category">03 — Video Production</div>
+        <h3 class="sc-title">Cinematic Edits & Product Demos</h3>
+        <p class="sc-desc">
+          Long-form video storytelling requires a meticulous balance of narrative pacing, visual fidelity, and audio synchronization. This collection showcases high-end promotional videos, corporate product walkthroughs, and cinematic edits. By leveraging advanced color grading, precise cuts, dynamic transitions, and immersive sound design, I transform raw footage into compelling stories that elevate the brand's professional presence.
+        </p>
+        <div class="tools-row">
+          <span class="tool-badge">Adobe Premiere Pro</span>
+          <span class="tool-badge">Adobe After Effects</span>
+          <span class="tool-badge">DaVinci Resolve</span>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1xR2caDbJ8ri6Nn9_G9UmzitLpyTY2MUo?usp=drive_link" target="_blank" class="btn-outline-glass hover-target">
+          View Pro Video Archive <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Category 4: Instagram Reels -->
+    <div class="showcase-row reveal">
+      <div class="showcase-visual glass-panel hover-target" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+        <div class="visual-inner">
+          <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=1200" alt="Mobile Social Media Setup">
+        </div>
+      </div>
+      <div class="showcase-info">
+        <div class="sc-category">04 — Short-Form Content</div>
+        <h3 class="sc-title">Viral Reels & Trend Integration</h3>
+        <p class="sc-desc">
+          Short-form vertical content currently dominates the algorithmic landscape of social media. Understanding emerging trends, comedic timing, and rapid retention hooks is crucial for organic growth. These Instagram Reels highlight my ability to edit fast-paced, highly engaging, and culturally relevant videos. Using trending audio, dynamic text animations, and aggressive pacing, these edits are engineered specifically to maximize watch time and shareability.
+        </p>
+        <div class="tools-row">
+          <span class="tool-badge">CapCut</span>
+          <span class="tool-badge">VN Editor</span>
+          <span class="tool-badge">Premiere Pro</span>
+        </div>
+        <a href="https://drive.google.com/drive/folders/12q-1yrE_wHkBjV2HSt7s5iPTu79NjckO?usp=drive_link" target="_blank" class="btn-outline-glass hover-target">
+          View Reels Archive <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section-pad container">
+    <div class="text-center reveal">
+      <h2 class="section-title">Professional <span class="text-gradient">Timeline</span></h2>
+    </div>
+
+    <div class="timeline-container col-lg-10 mx-auto">
+      
+      <!-- Current Role -->
+      <div class="timeline-item glass-panel reveal hover-target">
+        <div class="timeline-dot"></div>
+        <div class="tl-date">Sept 2025 — Present</div>
+        <h3 class="tl-role">UI/UX & Graphic Designer</h3>
+        <div class="tl-company"><i class="bi bi-buildings"></i> Gothi Tech LLP</div>
+        <p class="tl-desc">
+          Spearheading end-to-end design initiatives for digital products. Responsible for mapping complex user flows, creating high-fidelity interactive prototypes in Figma, and establishing comprehensive design systems. Simultaneously driving visual communication by executing high-impact marketing creatives, brand identities, and promotional video content tailored for diverse platforms.
+        </p>
+        <div class="tl-award">
+          <i class="bi bi-trophy-fill"></i> Employee of the Month (June 2026)
+        </div>
+      </div>
+
+      <!-- Internship -->
+      <div class="timeline-item glass-panel reveal hover-target">
+        <div class="timeline-dot" style="border-color: var(--accent-3); box-shadow: 0 0 15px var(--accent-3);"></div>
+        <div class="tl-date" style="color: var(--accent-3);">May 2025 — Aug 2025</div>
+        <h3 class="tl-role">UI/UX + Graphic Design Intern</h3>
+        <div class="tl-company"><i class="bi bi-building"></i> Decodez Innovates</div>
+        <p class="tl-desc">
+          Assisted senior designers in crafting intuitive mobile and web interfaces. Produced daily graphic design assets including social media posts, advertising banners, and corporate presentations. Gained hands-on experience in collaborating directly with front-end developers to ensure pixel-perfect implementation of UI mockups.
         </p>
       </div>
+
+      <!-- Education -->
+      <div class="timeline-item glass-panel reveal hover-target">
+        <div class="timeline-dot" style="border-color: var(--accent-2); box-shadow: 0 0 15px var(--accent-2);"></div>
+        <div class="tl-date" style="color: var(--accent-2);">2022 — 2025</div>
+        <h3 class="tl-role">Bachelor of Computer Applications (BCA)</h3>
+        <div class="tl-company"><i class="bi bi-mortarboard"></i> Veer Narmad South Gujarat University (VNSGU)</div>
+        <p class="tl-desc">
+          Built a strong foundational understanding of software development, database architecture, and digital logic. This technical background enables me to design pragmatic, developer-friendly UI/UX solutions and bridge the communication gap between creative direction and engineering execution.
+        </p>
+      </div>
+
     </div>
   </section>
 
-  <section id="work" class="section-spacing container">
-    <div class="text-center mb-5 reveal">
-      <div class="sec-subtitle">Curated Projects</div>
-      <h2 class="sec-title">Deep Dives & <span class="text-glow">Archives</span></h2>
-    </div>
-
-    <div class="showcase-container">
+  <footer id="contact" class="main-footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-5 reveal">
+          <h4 class="footer-title">Avi Gondaliya.</h4>
+          <p class="footer-text">
+            A multidisciplinary creative operating at the intersection of product logic, visual beauty, and cinematic motion. Based in the vibrant city of Ahmedabad, I am always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+          </p>
+          <div class="mt-4">
+            <a href="https://www.linkedin.com/in/avi-gondaliya-6a8300307" target="_blank" class="social-circle hover-target"><i class="bi bi-linkedin"></i></a>
+            <a href="mailto:gondaliyaavi007@gmail.com" class="social-circle hover-target"><i class="bi bi-envelope-fill"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 offset-lg-1 reveal" style="transition-delay: 0.1s;">
+          <h4 class="footer-title">Quick Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="hover-target">Home</a></li>
+            <li><a href="#work" class="hover-target">Selected Work</a></li>
+            <li><a href="#experience" class="hover-target">Career Timeline</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-3 reveal" style="transition-delay: 0.2s;">
+          <h4 class="footer-title">Contact Info</h4>
+          <ul class="footer-links">
+            <li class="d-flex gap-3 mb-3 text-muted">
+              <i class="bi bi-geo-alt-fill text-white"></i> 
+              <span>Ahmedabad, <br>Gujarat, India</span>
+            </li>
+            <li class="d-flex gap-3 mb-3 text-muted">
+              <i class="bi bi-envelope-at-fill text-white"></i> 
+              <a href="mailto:gondaliyaavi007@gmail.com" class="hover-target">gondaliyaavi007@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
       
-      <!-- Project 1: Video Editing Hub -->
-      <div class="showcase-row tilt-el reveal hover-trigger">
-        <div class="showcase-img-box glass">
-          <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=1400" alt="Video Editing Workspace" class="showcase-img">
-          <div class="showcase-img-overlay"></div>
-        </div>
-        <div class="showcase-content-box glass">
-          <span class="sc-badge" style="color: var(--neon-3);">01 / Video Production</span>
-          <h3 class="sc-title">Cinematic Video Editing Hub</h3>
-          <p class="sc-desc">High-end product walkthroughs, promotional edits, and narrative storytelling. Pacing, color grading, and sound design to keep audiences hooked.</p>
-          <a href="https://drive.google.com/drive/folders/1xR2caDbJ8ri6Nn9_G9UmzitLpyTY2MUo?usp=drive_link" target="_blank" class="btn-mag px-4 py-3" style="font-size: 0.9rem;">
-            Explore Video Folder <i class="bi bi-folder-symlink ms-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 2: Graphic Design & Posts -->
-      <div class="showcase-row tilt-el reveal hover-trigger">
-        <div class="showcase-img-box glass">
-          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=1400" alt="Graphic Design Assets" class="showcase-img">
-          <div class="showcase-img-overlay"></div>
-        </div>
-        <div class="showcase-content-box glass">
-          <span class="sc-badge" style="color: var(--neon-2);">02 / Digital Graphics</span>
-          <h3 class="sc-title">Social & Campaign Creatives</h3>
-          <p class="sc-desc">Vibrant, conversion-focused social media graphics, marketing banners, and visual assets designed to stand out in crowded feeds.</p>
-          <a href="https://drive.google.com/drive/folders/1XCL9Erp6qO8WrPGiiBYqT8iEovN7QMSm?usp=drive_link" target="_blank" class="btn-mag px-4 py-3" style="font-size: 0.9rem;">
-            Explore Graphics Folder <i class="bi bi-folder-symlink ms-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 3: Branding & Identity -->
-      <div class="showcase-row tilt-el reveal hover-trigger">
-        <div class="showcase-img-box glass">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1400" alt="Brand Identity Mockup" class="showcase-img">
-          <div class="showcase-img-overlay"></div>
-        </div>
-        <div class="showcase-content-box glass">
-          <span class="sc-badge" style="color: var(--neon-4);">03 / Identity Systems</span>
-          <h3 class="sc-title">Branding, Logos & Print</h3>
-          <p class="sc-desc">Comprehensive brand identities, premium logo designs, visiting cards, and sleek stationery that communicate trust and authority.</p>
-          <a href="https://drive.google.com/drive/folders/1ozUB_8-AOTS0UshWoBdvJguQP-KpMnoT?usp=drive_link" target="_blank" class="btn-mag px-4 py-3" style="font-size: 0.9rem;">
-            Explore Branding Folder <i class="bi bi-folder-symlink ms-2"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 4: Funny / Viral Reels -->
-      <div class="showcase-row tilt-el reveal hover-trigger">
-        <div class="showcase-img-box glass">
-          <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=1400" alt="Instagram Reels" class="showcase-img">
-          <div class="showcase-img-overlay"></div>
-        </div>
-        <div class="showcase-content-box glass">
-          <span class="sc-badge" style="color: var(--neon-1);">04 / Short-Form Content</span>
-          <h3 class="sc-title">Viral & Funny IG Reels</h3>
-          <p class="sc-desc">Optimized vertical video content featuring rapid-fire edits, engaging captions, and trend-focused humor designed for high retention on Instagram.</p>
-          <a href="https://drive.google.com/drive/folders/12q-1yrE_wHkBjV2HSt7s5iPTu79NjckO?usp=drive_link" target="_blank" class="btn-mag px-4 py-3" style="font-size: 0.9rem;">
-            Explore Reels Folder <i class="bi bi-folder-symlink ms-2"></i>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="experience" class="section-spacing container">
-    <div class="text-center mb-5 reveal">
-      <div class="sec-subtitle">Career Path</div>
-      <h2 class="sec-title">Professional Experience</h2>
-    </div>
-    
-    <div class="timeline">
-      <div class="timeline-item reveal">
-        <div class="timeline-icon"><i></i></div>
-        <div class="glass p-4 p-md-5 hover-trigger">
-          <div class="timeline-date">Current Role</div>
-          <h3 class="timeline-role">UI/UX & Graphic Designer</h3>
-          <div class="timeline-company"><i class="bi bi-geo-alt-fill"></i> Gothi Tech LLP, Ahmedabad</div>
-          <p class="about-text m-0" style="font-size: 1rem;">
-            Leading cross-functional design initiatives, architecting intuitive product interfaces, and executing high-fidelity brand creatives. Managing video content pipelines and establishing scalable design systems.
-          </p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <div class="timeline-icon" style="border-color: var(--neon-2); box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);">
-          <i style="background: var(--neon-2);"></i>
-        </div>
-        <div class="glass p-4 p-md-5 hover-trigger">
-          <div class="timeline-date" style="color: var(--neon-2);">Previous Role</div>
-          <h3 class="timeline-role">UI/UX + Graphic Design Intern</h3>
-          <div class="timeline-company"><i class="bi bi-building"></i> Decodez Innovates</div>
-          <p class="about-text m-0" style="font-size: 1rem;">
-            Designed mobile and web layouts while producing engaging social media posts. Collaborated closely with development teams to ensure pixel-perfect implementation of UI mockups.
-          </p>
-        </div>
+      <div class="footer-bottom reveal">
+        &copy; <span id="year"></span> Avi Gondaliya. Designed with precision. All rights reserved.
       </div>
     </div>
-  </section>
+  </footer>
 
-  <section class="section-spacing container reveal">
-    <div class="text-center mb-5">
-      <div class="sec-subtitle">Arsenal</div>
-      <h2 class="sec-title">Tools & Software</h2>
-    </div>
-    <div class="tools-grid">
-      <div class="tool-card glass hover-trigger"><h4>Figma</h4></div>
-      <div class="tool-card glass hover-trigger"><h4>Adobe Photoshop</h4></div>
-      <div class="tool-card glass hover-trigger"><h4>Adobe Illustrator</h4></div>
-      <div class="tool-card glass hover-trigger"><h4>Canva</h4></div>
-      <div class="tool-card glass hover-trigger"><h4>CapCut</h4></div>
-      <div class="tool-card glass hover-trigger"><h4>VN Editor</h4></div>
-    </div>
-  </section>
+  <!-- Vanilla Tilt JS (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-wC/a553tzbg542HsAWy-0o22qK2hJmE9/Qd01KluB93tCq81C/k4s0DqZ4QWf515eJc5f8h8R07GvJk5aO1xZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <section id="contact" class="contact-footer container reveal">
-    <h2 class="contact-title">Let's Create <span class="text-glow">Together.</span></h2>
-    <div>
-      <a href="mailto:gondaliyaavi007@gmail.com" class="social-btn email hover-trigger">
-        <i class="bi bi-envelope-at-fill"></i> gondaliyaavi007@gmail.com
-      </a>
-      <a href="https://www.linkedin.com/in/avi-gondaliya-6a8300307" target="_blank" class="social-btn linkedin hover-trigger">
-        <i class="bi bi-linkedin"></i> LinkedIn Network
-      </a>
-    </div>
-    <div class="copyright">
-      &copy; <span id="year"></span> Avi Gondaliya. All rights reserved.<br>
-      Designed in Ahmedabad. Built with precision and motion.
-    </div>
-  </section>
-
+  <!-- Custom Interactions -->
   <script>
-    // Set Year dynamically
+    // Set Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll Progress Bar & Navbar styling
+    const scrollBar = document.getElementById('scrollBar');
+    const navbar = document.getElementById('navbar');
+    
+    window.addEventListener('scroll', () => {
+      // Progress calculation
+      const scrollPx = document.documentElement.scrollTop;
+      const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      scrollBar.style.width = `${(scrollPx / winHeightPx) * 100}%`;
+      
+      // Navbar backdrop
+      if(scrollPx > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
 
     // Custom Cursor Logic
     const dot = document.getElementById('cursorDot');
-    const circle = document.getElementById('cursorCircle');
-    const triggers = document.querySelectorAll('.hover-trigger, a, button');
+    const ring = document.getElementById('cursorRing');
+    const triggers = document.querySelectorAll('.hover-target');
 
     if (window.matchMedia("(hover: hover)").matches) {
       let mouseX = 0, mouseY = 0;
-      let circleX = 0, circleY = 0;
+      let ringX = 0, ringY = 0;
 
       window.addEventListener('mousemove', (e) => {
         mouseX = e.clientX; mouseY = e.clientY;
         dot.style.left = `${mouseX}px`; dot.style.top = `${mouseY}px`;
       });
 
+      // Smooth interpolation for the ring
       const tick = () => {
-        circleX += (mouseX - circleX) * 0.15;
-        circleY += (mouseY - circleY) * 0.15;
-        circle.style.left = `${circleX}px`; circle.style.top = `${circleY}px`;
+        ringX += (mouseX - ringX) * 0.15;
+        ringY += (mouseY - ringY) * 0.15;
+        ring.style.left = `${ringX}px`; ring.style.top = `${ringY}px`;
         requestAnimationFrame(tick);
       };
       tick();
 
       triggers.forEach(el => {
-        el.addEventListener('mouseenter', () => circle.classList.add('hovered'));
-        el.addEventListener('mouseleave', () => circle.classList.remove('hovered'));
+        el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+        el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
       });
     }
 
-    // Scroll Progress Bar
-    const scrollBar = document.getElementById('scrollBar');
-    window.addEventListener('scroll', () => {
-      const scrollPx = document.documentElement.scrollTop;
-      const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      scrollBar.style.width = `${(scrollPx / winHeightPx) * 100}%`;
-    });
-
-    // Magnetic Button Logic
-    const magWraps = document.querySelectorAll('.mag-wrap');
-    if (window.matchMedia("(hover: hover)").matches) {
-      magWraps.forEach(wrap => {
-        const btn = wrap.querySelector('.btn-mag');
-        wrap.addEventListener('mousemove', (e) => {
-          const rect = wrap.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-        });
-        wrap.addEventListener('mouseleave', () => {
-          btn.style.transform = `translate(0px, 0px)`;
-          btn.style.transition = `transform 0.3s ease`;
-          setTimeout(() => btn.style.transition = '', 300);
-        });
-      });
-    }
-
-    // 3D Parallax Tilt for Massive Cards
-    const tiltElements = document.querySelectorAll('.tilt-el');
-    if (window.matchMedia("(hover: hover)").matches) {
-      tiltElements.forEach(el => {
-        el.addEventListener('mousemove', (e) => {
-          el.classList.remove('reset');
-          const rect = el.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          
-          // Calculate subtle rotation
-          const rotateX = ((y - centerY) / centerY) * -5; // max 5 deg
-          const rotateY = ((x - centerX) / centerX) * 5; 
-          
-          el.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-        
-        el.addEventListener('mouseleave', () => {
-          el.classList.add('reset');
-          el.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg)`;
-        });
-      });
-    }
-
-    // Intersection Observer for Smooth Reveals
+    // Scroll Reveal Intersection Observer
     const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
     const revealObserver = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          obs.unobserve(entry.target);
+          obs.unobserve(entry.target); // Only reveal once
         }
       });
     }, observerOptions);
